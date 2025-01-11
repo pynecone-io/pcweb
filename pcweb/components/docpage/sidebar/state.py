@@ -44,10 +44,16 @@ class SidebarState(rx.State):
 
     @rx.var(cache=True, initial_value=-1)
     def sidebar_index(self) -> int:
+        route = self.router.page.path
         if self._sidebar_index < 0:
-            route = self.router.page.path
-            if "library" in route or "api-reference" in route or "recipe" in route:
+            if "library" in route:
                 return 1
+            elif "hosting" in route:
+                return 2
+            elif "api-reference" in route:
+                return 3
             else:
                 return 0
+        if "hosting" in route:
+            return 2
         return self._sidebar_index

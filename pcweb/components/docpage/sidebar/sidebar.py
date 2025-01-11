@@ -351,7 +351,7 @@ def sidebar_comp(
                 "Learn", getting_started.introduction.path, "graduation-cap", 0
             ),
             sidebar_category("Components", library.path, "layout-panel-left", 1),
-            sidebar_category("Recipes", overview.path, "scan-text", 2),
+            sidebar_category("Deploy", hosting_page.deploy_quick_start.path, "cloud", 2),
             sidebar_category("API Reference", pages[0].path, "book-text", 3),
             class_name="flex flex-col items-start gap-1 w-full list-none",
         ),
@@ -378,11 +378,7 @@ def sidebar_comp(
                         "State", state.overview.path, filter_out_non_sidebar_items(backend), backend_index, url
                     ),
                     create_sidebar_section(
-                        "Hosting",
-                        hosting_page.deploy_quick_start.path,
-                        hosting,
-                        hosting_index,
-                        url,
+                        "Recipes", overview.path, recipes, recipes_index, url
                     ),
                     class_name="flex flex-col items-start gap-6 p-[0px_1rem_0px_0.5rem] w-full list-none list-style-none",
                 ),
@@ -426,7 +422,11 @@ def sidebar_comp(
                 2,
                 rx.el.ul(
                     create_sidebar_section(
-                        "Recipes", overview.path, recipes, recipes_index, url
+                        "Hosting",
+                        hosting_page.deploy_quick_start.path,
+                        hosting,
+                        hosting_index,
+                        url,
                     ),
                     class_name="flex flex-col items-start gap-6 p-[0px_1rem_0px_0.5rem] w-full list-none list-style-none",
                 ),
