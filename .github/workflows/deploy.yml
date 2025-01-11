@@ -1,0 +1,24 @@
+name: deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run'
+        required: true
+        default: 'false'
+
+jobs:
+  deploy-dev:
+    runs-on: ubuntu-latest
+    environment: DeployDev
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Deploy
+        uses: reflex-dev/reflex-deploy-action@v1
+        with:
+          auth_token: ${{ secrets.REFLEX_AUTH_TOKEN }}
+          project_id: ${{ secrets.PROJECT_ID }}
+          extra_args: "--vmtype=${{ vars.VM_TYPE }}"
+          dry_run: ${{ vars.DRY_RUN }}
