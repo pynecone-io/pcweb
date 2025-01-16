@@ -209,6 +209,7 @@ def get_sidebar_items_hosting():
                 hosting.secrets_environment_vars,
                 hosting.tokens,
                 hosting.custom_domains,
+                hosting.reflex_branding,
                 hosting.deploy_with_github_actions,
             ],
         ),
