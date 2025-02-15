@@ -1,5 +1,5 @@
 email-validator==2.1.1
-black==23.10.0
+black==24.3.0
 pandas>=1.5.3
 psycopg[binary]==3.2.3
 plotly-express==0.4.1
