@@ -54,6 +54,15 @@ class User(rx.Model, table=True):
 Reflex leverages [alembic](https://alembic.sqlalchemy.org/en/latest/)
 to manage database schema changes.
 
+```md alert warning
+# Import all models from the main app module
+
+To ensure that your models are included in the migration scripts, import all
+models from the main app module. This is necessary because alembic will only see
+models that are imported when Reflex is started, and Reflex will only import
+`rxconfig.py` and the module that defines `app = rx.App()`.
+```
+
 Before the database feature can be used in a new app you must call `reflex db init`
 to initialize alembic and create a migration script with the current schema.
 
